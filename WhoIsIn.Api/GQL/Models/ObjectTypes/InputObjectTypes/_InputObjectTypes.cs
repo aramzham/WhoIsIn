@@ -1,0 +1,8 @@
+﻿namespace WhoIsIn.Api.GQL.Models.ObjectTypes.InputObjectTypes;
+
+// match
+public record CreateMatchInput(DateTime StartTime, string Location, decimal Price);
+public record AddPlayerToMatchInput(Guid MatchId, Guid PlayerId);
+
+// player
+public record CreatePlayerInput(string Name, string Email);
