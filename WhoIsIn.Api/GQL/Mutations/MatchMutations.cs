@@ -58,4 +58,17 @@ public partial class Mutations
             Message = "Player added to the match!!"
         };
     }
+
+    public async Task<RemovePlayerFromMatchMutationStatus> RemovePlayerFromMatch(
+        [Service] IMatchRepository matchRepository, [GraphQLNonNullType] CancelParticipationInput input)
+    {
+        var result = await matchRepository.CancelParticipation(input.MatchId, input.PlayerId, input.Reason);
+
+        return new RemovePlayerFromMatchMutationStatus
+        {
+            Result = RequestResult.Success,
+            Match = result.ToData(),
+            Message = "Player removed from the match!!"
+        };
+    }
 }

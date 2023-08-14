@@ -29,4 +29,13 @@ public class PlayerRepository : BaseRepository, IPlayerRepository
 
         return result.Entity;
     }
+
+    public async Task<Player> SetNickname(Guid playerId, string nickname)
+    {
+        var player = await _db.Players.FirstOrDefaultAsync(x => x.Id == playerId);
+        player.Nickname = nickname;
+        await _db.SaveChangesAsync();
+
+        return player;
+    }
 }

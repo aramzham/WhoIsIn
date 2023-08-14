@@ -19,4 +19,16 @@ public partial class Mutations
             Message = "Player successfully created!!"
         };
     }
+
+    public async Task<SetPlayerNicknameMutationStatus> SetPlayerNickname([Service] IPlayerRepository repository, [GraphQLNonNullType] SetPlayerNicknameInput input)
+    {
+        var result = await repository.SetNickname(input.PlayerId, input.Nickname);
+        
+        return new SetPlayerNicknameMutationStatus()
+        {
+            Result = RequestResult.Success,
+            Player = result.ToData(),
+            Message = "Player nickname successfully set!!"
+        };
+    }
 }

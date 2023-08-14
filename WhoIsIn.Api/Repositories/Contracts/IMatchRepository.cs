@@ -8,4 +8,5 @@ public interface IMatchRepository
     Task<List<Match>> GetAll();
     Task<Match> Create(DateTime startTime, string location, decimal price);
     Task<Match> AddPlayer(Guid matchId, Guid playerId);
+    Task<Match> CancelParticipation(Guid matchId, Guid playerId, string reason);
 }

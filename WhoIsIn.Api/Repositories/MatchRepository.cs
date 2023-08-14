@@ -49,4 +49,19 @@ public class MatchRepository : BaseRepository, IMatchRepository
 
         return match;
     }
+
+    public async Task<Match> CancelParticipation(Guid matchId, Guid playerId, string reason)
+    {
+        var match = await _db.Matches.Include(x => x.Players).FirstOrDefaultAsync(x => x.Id == matchId);
+
+        var playerToRemove = match.Players.FirstOrDefault(x => x.Id == playerId);
+        
+        match.Players.Remove(playerToRemove);
+        
+        // create a cancellation table, add cancellation into db with the reason 
+        
+        await _db.SaveChangesAsync();
+
+        return match;
+    }
 }
