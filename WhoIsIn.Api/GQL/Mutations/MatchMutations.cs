@@ -23,7 +23,7 @@ public partial class Mutations
             return new CreateMatchMutationStatus()
             {
                 Result = RequestResult.Success,
-                MatchDto = result.ToData(),
+                Match = result.ToData(),
                 Message = "Match successfully created!!"
             };
         }

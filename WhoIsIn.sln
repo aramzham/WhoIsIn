@@ -5,6 +5,8 @@ VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WhoIsIn.Api", "WhoIsIn.Api\WhoIsIn.Api.csproj", "{B10A98E4-53DA-426A-A022-A7599C8029AF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WhoIsIn.Web", "WhoIsIn.Web\WhoIsIn.Web.csproj", "{21E4A4AB-2AC3-4D84-B3D5-2471A10A08D1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -18,5 +20,9 @@ Global
 		{B10A98E4-53DA-426A-A022-A7599C8029AF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B10A98E4-53DA-426A-A022-A7599C8029AF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B10A98E4-53DA-426A-A022-A7599C8029AF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{21E4A4AB-2AC3-4D84-B3D5-2471A10A08D1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{21E4A4AB-2AC3-4D84-B3D5-2471A10A08D1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{21E4A4AB-2AC3-4D84-B3D5-2471A10A08D1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{21E4A4AB-2AC3-4D84-B3D5-2471A10A08D1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

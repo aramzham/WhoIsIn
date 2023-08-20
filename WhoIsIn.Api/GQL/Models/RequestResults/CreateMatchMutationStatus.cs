@@ -5,5 +5,5 @@ namespace WhoIsIn.Api.GQL.Models.RequestResults;
 
 public class CreateMatchMutationStatus : BaseGqlResponse
 {
-    public MatchDto? MatchDto { get; set; }
+    public MatchDto? Match { get; set; }
 }
