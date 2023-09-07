@@ -1,5 +1,5 @@
 ﻿using WhoIsIn.Api.Data.Models;
-using WhoIsIn.Api.Services.Models;
+using WhoIsIn.Models.Dtos;
 
 namespace WhoIsIn.Api.Mapping;
 

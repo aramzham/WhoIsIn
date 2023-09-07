@@ -1,6 +1,6 @@
 ﻿using WhoIsIn.Api.Mapping;
 using WhoIsIn.Api.Repositories.Contracts;
-using WhoIsIn.Api.Services.Models;
+using WhoIsIn.Models.Dtos;
 
 namespace WhoIsIn.Api.GQL.Queries;
 

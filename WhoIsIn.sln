@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WhoIsIn.Api", "WhoIsIn.Api\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WhoIsIn.Web", "WhoIsIn.Web\WhoIsIn.Web.csproj", "{21E4A4AB-2AC3-4D84-B3D5-2471A10A08D1}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WhoIsIn.Models", "WhoIsIn.Models\WhoIsIn.Models.csproj", "{02449A08-F027-468B-A485-70D6854EEE9A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,5 +26,9 @@ Global
 		{21E4A4AB-2AC3-4D84-B3D5-2471A10A08D1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{21E4A4AB-2AC3-4D84-B3D5-2471A10A08D1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{21E4A4AB-2AC3-4D84-B3D5-2471A10A08D1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{02449A08-F027-468B-A485-70D6854EEE9A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{02449A08-F027-468B-A485-70D6854EEE9A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{02449A08-F027-468B-A485-70D6854EEE9A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{02449A08-F027-468B-A485-70D6854EEE9A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

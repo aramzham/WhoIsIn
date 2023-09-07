@@ -1,5 +1,5 @@
 ﻿using WhoIsIn.Api.GQL.Models.RequestResults.Base;
-using WhoIsIn.Api.Services.Models;
+using WhoIsIn.Models.Dtos;
 
 namespace WhoIsIn.Api.GQL.Models.RequestResults;
 

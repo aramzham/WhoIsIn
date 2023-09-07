@@ -1,4 +1,4 @@
-﻿using WhoIsIn.Api.Dtos;
+﻿using WhoIsIn.Models;
 
 namespace WhoIsIn.Api.GQL.Models.RequestResults.Base;
 

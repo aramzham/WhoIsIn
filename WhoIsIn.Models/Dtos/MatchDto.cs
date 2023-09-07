@@ -1,6 +1,4 @@
-﻿using WhoIsIn.Api.Dtos;
-
-namespace WhoIsIn.Api.Services.Models;
+﻿namespace WhoIsIn.Models.Dtos;
 
 public class MatchDto
 {

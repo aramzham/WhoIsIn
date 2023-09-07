@@ -17,4 +17,10 @@
       <_ContentIncludedByDefault Remove="wwwroot\css\bootstrap\bootstrap.min.css.map" />
     </ItemGroup>
 
+
+
+    <ItemGroup>
+      <ProjectReference Include="..\WhoIsIn.Models\WhoIsIn.Models.csproj" />
+    </ItemGroup>
+
 </Project>

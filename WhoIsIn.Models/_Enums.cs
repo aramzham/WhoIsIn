@@ -1,4 +1,4 @@
-﻿namespace WhoIsIn.Api.Dtos;
+﻿namespace WhoIsIn.Models;
 
 public enum MatchState
 {
