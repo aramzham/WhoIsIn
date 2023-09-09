@@ -9,6 +9,7 @@ using WhoIsIn.Api.Repositories.Contracts;
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddDbContextPool<AppDbContext>(o => o.UseSqlite("Data Source=WhoIsIn.db"));
+builder.Services.AddCors();
 
 // repositories
 builder.Services.AddScoped<IPlayerRepository, PlayerRepository>();
@@ -23,6 +24,12 @@ builder.Services.AddGraphQLServer()
     .AddType<CreatePlayerInputType>();
 
 var app = builder.Build();
+
+app.UseCors(policy =>
+    policy.WithOrigins("https://localhost:7094")
+        .AllowAnyMethod()
+        .AllowAnyHeader()
+);
 
 app.MapGraphQL();
 

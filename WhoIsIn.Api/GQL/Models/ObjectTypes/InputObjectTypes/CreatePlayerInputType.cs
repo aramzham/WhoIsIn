@@ -1,4 +1,6 @@
-﻿namespace WhoIsIn.Api.GQL.Models.ObjectTypes.InputObjectTypes;
+﻿using WhoIsIn.Models;
+
+namespace WhoIsIn.Api.GQL.Models.ObjectTypes.InputObjectTypes;
 
 public class CreatePlayerInputType : InputObjectType<CreatePlayerInput>
 {

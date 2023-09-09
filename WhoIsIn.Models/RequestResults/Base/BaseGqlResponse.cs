@@ -1,6 +1,4 @@
-﻿using WhoIsIn.Models;
-
-namespace WhoIsIn.Api.GQL.Models.RequestResults.Base;
+﻿namespace WhoIsIn.Models.RequestResults.Base;
 
 public abstract class BaseGqlResponse
 {

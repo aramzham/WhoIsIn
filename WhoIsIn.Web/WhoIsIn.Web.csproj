@@ -7,6 +7,8 @@
     </PropertyGroup>
 
     <ItemGroup>
+        <PackageReference Include="GraphQL.Client" Version="6.0.0" />
+        <PackageReference Include="GraphQL.Client.Serializer.SystemTextJson" Version="6.0.0" />
         <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="7.0.10" />
         <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="7.0.10" PrivateAssets="all" />
         <PackageReference Include="MudBlazor" Version="6.9.0" />
@@ -21,6 +23,14 @@
 
     <ItemGroup>
       <ProjectReference Include="..\WhoIsIn.Models\WhoIsIn.Models.csproj" />
+    </ItemGroup>
+
+
+
+    <ItemGroup>
+      <Content Update="wwwroot\appsettings.json">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </Content>
     </ItemGroup>
 
 </Project>

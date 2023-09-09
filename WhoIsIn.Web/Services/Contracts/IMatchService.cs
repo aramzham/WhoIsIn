@@ -1,8 +1,10 @@
-﻿using WhoIsIn.Models.Dtos;
+﻿using WhoIsIn.Models;
+using WhoIsIn.Models.Dtos;
 
 namespace WhoIsIn.Web.Services.Contracts;
 
 public interface IMatchService
 {
-    Task<MatchDto> Create();
+    Task<MatchDto?> Create(CreateMatchInput input);
+    Task<List<MatchDto>> GetAll();
 }

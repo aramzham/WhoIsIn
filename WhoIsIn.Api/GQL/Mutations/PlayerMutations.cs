@@ -1,8 +1,8 @@
 ﻿using WhoIsIn.Api.GQL.Models.ObjectTypes.InputObjectTypes;
-using WhoIsIn.Api.GQL.Models.RequestResults;
 using WhoIsIn.Api.Mapping;
 using WhoIsIn.Api.Repositories.Contracts;
 using WhoIsIn.Models;
+using WhoIsIn.Models.RequestResults;
 
 namespace WhoIsIn.Api.GQL.Mutations;
 

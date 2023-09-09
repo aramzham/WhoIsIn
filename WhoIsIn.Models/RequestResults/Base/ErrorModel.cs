@@ -1,4 +1,4 @@
-﻿namespace WhoIsIn.Api.GQL.Models.RequestResults.Base;
+﻿namespace WhoIsIn.Models.RequestResults.Base;
 
 public class ErrorModel
 {
