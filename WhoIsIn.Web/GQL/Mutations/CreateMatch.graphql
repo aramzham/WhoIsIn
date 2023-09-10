@@ -1,0 +1,37 @@
+﻿mutation GenerateMatch($startTime: DateTime!, $location: String!, $price: Decimal!) {
+    createMatch(input: {startTime: $startTime, location: $location, price: $price}) {
+        match {
+            id
+            name
+            description
+            startTime
+            endTime
+            state
+            location
+            price
+            players {
+                id
+                name
+                nickname
+                country
+                city
+                avatarUrl
+                birthDate
+                bio
+                email
+            }
+        }
+        result
+        message
+        errors {
+            code
+            message
+            domain
+            details {
+                code
+                message
+                target
+            }
+        }
+    }
+}

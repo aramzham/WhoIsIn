@@ -1,4 +1,4 @@
-﻿namespace WhoIsIn.Models;
+﻿namespace WhoIsIn.Api.GQL.Models.ObjectTypes.InputObjectTypes;
 
 // match
 public record CreateMatchInput(DateTime StartTime, string Location, decimal Price);

@@ -1,81 +1,48 @@
-﻿using GraphQL;
-using GraphQL.Client.Abstractions;
-using WhoIsIn.Models;
-using WhoIsIn.Models.Dtos;
-using WhoIsIn.Models.RequestResults;
+﻿using WhoIsIn.Models.Dtos;
 using WhoIsIn.Web.Services.Contracts;
 
 namespace WhoIsIn.Web.Services;
 
 public class MatchService : IMatchService
 {
-    private readonly IGraphQLClient _client;
+    private readonly IWhoIsInWebGraphQLClient _graphqlClient;
 
-    public MatchService(IGraphQLClient client)
+    public MatchService(IWhoIsInWebGraphQLClient graphqlClient)
     {
-        _client = client;
+        _graphqlClient = graphqlClient;
     }
 
-    public async Task<MatchDto?> Create(CreateMatchInput input)
+    public async Task<MatchDto?> Create(DateTime startTime, string location, decimal price)
     {
-        var query = new GraphQLRequest
-        {
-            Query = """
-                    mutation CreateMatch($input: CreateMatchInput!) {
-                      createMatch(input: $input) {
-                        match {
-                          id
-                          name
-                          description
-                          startTime
-                          endTime
-                          state
-                          location
-                          price
-                        }
-                        result
-                        message
-                        errors {
-                          code
-                          message
-                          domain
-                          details {
-                            code
-                            message
-                            target
-                          }
-                        }
-                      }
-                    }
-                    """,
-            Variables = new { input }
-        };
+        var result = await _graphqlClient.GenerateMatch.ExecuteAsync(startTime, location, price);
 
-        var response = await _client.SendMutationAsync<CreateMatchMutationStatus>(query);
-        return response.Data.Match;
+        return new MatchDto()
+        {
+            Location = result.Data.CreateMatch.Match.Location,
+            StartTime = result.Data.CreateMatch.Match.StartTime.DateTime,
+            Description = result.Data.CreateMatch.Match.Description,
+            Price = result.Data.CreateMatch.Match.Price,
+            Id = result.Data.CreateMatch.Match.Id,
+            Name = result.Data.CreateMatch.Match.Name,
+            State = (Models.MatchState)result.Data.CreateMatch.Match.State,
+            EndTime = result.Data.CreateMatch.Match.EndTime.DateTime
+        };
     }
 
     public async Task<List<MatchDto>> GetAll()
     {
-        var query = new GraphQLRequest
-        {
-            Query = """
-                    query GetAllMatches{
-                      allMatches{
-                        id
-                        name
-                        description
-                        startTime
-                        endTime
-                        state
-                        location
-                        price
-                      }
-                    }
-                    """
-        };
+        var result = await _graphqlClient.GetAllMatches.ExecuteAsync();
 
-        var response = await _client.SendQueryAsync<List<MatchDto>>(query);
-        return response.Data;
+        return result.Data.AllMatches.Select(x => new MatchDto()
+        {
+            Location = x.Location,
+            StartTime = x.StartTime.DateTime,
+            Description = x.Description,
+            Price = x.Price,
+            Id = x.Id,
+            Name = x.Name,
+            State = (Models.MatchState)x.State,
+            EndTime = x.EndTime.DateTime
+        }).ToList();
     }
 }

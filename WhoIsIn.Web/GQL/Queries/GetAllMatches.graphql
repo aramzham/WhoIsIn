@@ -1,0 +1,12 @@
+﻿query GetAllMatches{
+    allMatches{
+        id
+        name
+        description
+        startTime
+        endTime
+        state
+        location
+        price
+    }
+}

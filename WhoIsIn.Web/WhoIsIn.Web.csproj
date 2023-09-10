@@ -7,11 +7,10 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="GraphQL.Client" Version="6.0.0" />
-        <PackageReference Include="GraphQL.Client.Serializer.SystemTextJson" Version="6.0.0" />
         <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="7.0.10" />
         <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="7.0.10" PrivateAssets="all" />
         <PackageReference Include="MudBlazor" Version="6.9.0" />
+        <PackageReference Include="StrawberryShake.Server" Version="13.5.1" />
     </ItemGroup>
 
     <ItemGroup>
@@ -32,5 +31,20 @@
         <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       </Content>
     </ItemGroup>
+
+
+
+
+    <ItemGroup>
+      <GraphQL Update="GQL\Mutations\CreateMatch.graphql">
+        <Generator>MSBuild:GenerateGraphQLCode</Generator>
+      </GraphQL>
+      <GraphQL Update="GQL\Queries\GetAllMatches.graphql">
+        <Generator>MSBuild:GenerateGraphQLCode</Generator>
+      </GraphQL>
+    </ItemGroup>
+
+
+
 
 </Project>

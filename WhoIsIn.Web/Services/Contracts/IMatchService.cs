@@ -5,6 +5,6 @@ namespace WhoIsIn.Web.Services.Contracts;
 
 public interface IMatchService
 {
-    Task<MatchDto?> Create(CreateMatchInput input);
+    Task<MatchDto?> Create(DateTime startTime, string location, decimal price);
     Task<List<MatchDto>> GetAll();
 }

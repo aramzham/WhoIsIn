@@ -1,0 +1,147 @@
+﻿schema {
+  query: Queries
+  mutation: Mutations
+}
+
+"The input type for adding a player to a match"
+input AddPlayerToMatchInput {
+  "The id of the player to add to the match"
+  playerId: ID!
+  "The id of the match to add the player to"
+  matchId: ID!
+}
+
+"Represents the input for creating a match"
+input CreateMatchInput {
+  "The location of the match"
+  location: String!
+  "The price of the current match"
+  price: Decimal!
+  "When the match starts"
+  startTime: DateTime!
+}
+
+"Represents the input to create a player."
+input CreatePlayerInput {
+  "The name of the player"
+  name: String!
+  "The email of the player"
+  email: String!
+}
+
+"The built-in `Decimal` scalar type."
+scalar Decimal
+
+"The `DateTime` scalar represents an ISO-8601 compliant date time type."
+scalar DateTime
+
+type Queries {
+  allMatches: [MatchDto!]!
+  matchById(id: UUID!): MatchDto!
+  byId(id: UUID!): PlayerDto!
+}
+
+type Mutations {
+  createMatch(input: CreateMatchInput!): CreateMatchMutationStatus!
+  addPlayerToMatch(input: AddPlayerToMatchInput!): AddPlayerToMatchMutationStatus!
+  removePlayerFromMatch(input: CancelParticipationInput!): RemovePlayerFromMatchMutationStatus!
+  createPlayer(input: CreatePlayerInput!): CreatePlayerMutationStatus!
+  setPlayerNickname(input: SetPlayerNicknameInput!): SetPlayerNicknameMutationStatus!
+}
+
+scalar UUID
+
+type MatchDto {
+  id: UUID!
+  name: String!
+  description: String
+  startTime: DateTime!
+  endTime: DateTime!
+  state: MatchState!
+  location: String!
+  price: Decimal!
+  players: [PlayerDto!]!
+}
+
+type PlayerDto {
+  id: UUID!
+  name: String!
+  nickname: String
+  country: String
+  city: String
+  avatarUrl: String
+  birthDate: DateTime
+  bio: String
+  email: String!
+}
+
+type CreateMatchMutationStatus {
+  match: MatchDto
+  result: RequestResult!
+  message: String!
+  errors: [ErrorModel!]
+}
+
+type AddPlayerToMatchMutationStatus {
+  match: MatchDto
+  result: RequestResult!
+  message: String!
+  errors: [ErrorModel!]
+}
+
+type RemovePlayerFromMatchMutationStatus {
+  match: MatchDto!
+  result: RequestResult!
+  message: String!
+  errors: [ErrorModel!]
+}
+
+input CancelParticipationInput {
+  playerId: UUID!
+  matchId: UUID!
+  reason: String!
+}
+
+type CreatePlayerMutationStatus {
+  player: PlayerDto
+  result: RequestResult!
+  message: String!
+  errors: [ErrorModel!]
+}
+
+type SetPlayerNicknameMutationStatus {
+  player: PlayerDto!
+  result: RequestResult!
+  message: String!
+  errors: [ErrorModel!]
+}
+
+input SetPlayerNicknameInput {
+  playerId: UUID!
+  nickname: String!
+}
+
+type ErrorModel {
+  code: String!
+  message: String!
+  domain: String!
+  details: [ErrorDetailModel!]!
+}
+
+enum RequestResult {
+  FAIL
+  SUCCESS
+}
+
+enum MatchState {
+  NOT_STARTED
+  IN_PROGRESS
+  FINISHED
+  CANCELLED
+}
+
+type ErrorDetailModel {
+  code: String!
+  message: String!
+  target: String!
+}
